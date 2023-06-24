@@ -1,0 +1,28 @@
+show databases
+use <dbname>
+
+db.students.insert({})
+
+db.students.find()
+db.students.find({name:"Daniel"})
+db.students.find().count()
+db.students.updateOne()
+db.students.updateMany()
+db.students.update({name:"Daniel",age:22}, {$set:{age:30}})
+
+db.students.find({age:{$gt:20}})
+db.students.find({age:{$gte:20}})
+db.students.find({age:{$lte:20}})
+
+db.students.find({$and:[{age:{$gt:20}},{name="Daniel"}]})
+
+db.students.find({name:"Daniel"}, {name:1,age:1,_id:0})  // find( {<where-condition>}, {columns to be retrieved}) 
+
+db.students.find({name:"Daniel"}, {name:1,age:1,subjects:1,_id:0})
+
+db.students.find({name:"Daniel"}, {name:0,age:0,_id:0})  // this means excluding name and age, and retrieve all remianing 
+
+db.students.find({name:{$in:['Sophia','Daniel']}})
+
+db.createCollection('cars')
+db.cars.insertMany({})
